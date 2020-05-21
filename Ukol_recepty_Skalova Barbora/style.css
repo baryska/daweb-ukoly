@@ -1,0 +1,221 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+
+/* -------------------------------------------------- */
+
+/*
+pouzivame mobile first pristup
+tj. vychozi styly mimo media query jsou pro nejmensi mobilni zarizeni (telefony)
+s pribyvajici sirkou pridavame media query pro...
+tablety:
+@media (min-width: 480px) {
+}
+notebook/pc:
+@media (min-width: 860px) {
+}
+*/
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.paticka {
+  text-align: center;
+  font-size: 14px;
+  color: silver;
+}
+
+.paticka a {
+  color: silver;
+}
+
+/* ------------------------------- */
+
+/* ----- DOLE BUDE TVOJE CSS ----- */
+
+/* ------------------------------- */
+
+/* Pro ztmavení obrázků jsem použila dvě metody - pseudoelement ::before (u velkého obrázku) a linear-gradient (u ostatních). Ten druhý je o dost jednodušší, ale výsledek prvního se mi líbí víc - je nějaká možnost, jak dosáhnout ztmavení jako u pseudoelementu a zároveň nevyplácat tolik kódu? :) */
+
+.doporucujeme {
+  /* width: 350px; */
+  margin: 0 auto;
+}
+
+.hlavni-recept {
+  min-height: 200px;
+  border-bottom: solid white 0.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.hlavni-recept::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom: solid white 0.5px;
+  position: absolute;
+  background-image: url(images/burger.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: brightness(80%);
+}
+
+.hlavni-recept .recept-meta {
+  position: relative;
+}
+
+.hlavni-recept .recept-nazev {
+  position: relative;
+}
+
+.recept {
+  min-height: 90px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: solid white 0.5px;
+}
+
+.recept2 {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(images/sushi.jpg);
+}
+
+.recept3 {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(images/kure.jpg);
+}
+
+.recept4 {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(images/rajcata.jpg);
+}
+
+.recept5 {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(images/grilovani.jpg);
+}
+
+.recept-nazev {
+  margin-bottom: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  color: white;
+}
+
+.recept-kategorie,
+.recept-komentare {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px;
+}
+
+.hlavni-recept .recept-nazev {
+  font-size: 28px;
+  font-weight: 800;
+  padding: 10px;
+}
+
+.recept .recept-nazev {
+  font-size: 18px;
+  font-weight: 800;
+  padding: 10px;
+}
+
+.recept-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 480px) {
+  /* .doporucujeme {
+    /* width: 600px; 
+  } */
+
+  .hlavni-recept {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .recept {
+    min-height: 150px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .recepty {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .recept2 {
+    border-right: solid white 0.5px;
+  }
+  .recept4 {
+    border-right: solid white 0.5px;
+  }
+  .hlavni-recept .recept-nazev {
+    font-size: 36px;
+    font-weight: 800;
+    padding: 20px;
+  }
+  .recept .recept-nazev {
+    font-size: 22px;
+    font-weight: 800;
+    padding: 20px;
+  }
+}
+
+@media (min-width: 860px) {
+  .doporucujeme {
+    /* width: 1000px; */
+    display: flex;
+    justify-content: center;
+  }
+  .hlavni-recept {
+    min-height: 400px;
+    flex-basis: 33%;
+  }
+  .recepty {
+    flex-basis: 66%;
+    border-left: solid white 0.5px;
+  }
+  .recept {
+    min-height: 200px;
+    flex-grow: 1;
+  }
+}
