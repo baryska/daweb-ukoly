@@ -38,32 +38,52 @@ const dovolena = (osoba1, osoba2) => {
     }
   }
   else {
-    return `Bohužel nemůžete jet, chybí vám ještě ${(100000 - (uspory1 + uspory2))}. ${jmeno1} musí ještě naspořit ${(50000 - uspory1)} a ${jmeno2} musí ještě naspořit ${(50000 - uspory2)}.`
+    if (uspory1 >= 50000) {
+      return `Bohužel nemůžete jet. ${jmeno1} už má dost peněz, ale ${jmeno2} musí ještě naspořit minimálně ${(100000 - (uspory1 + uspory2))}. Pokud chce pokrýt polovinu nákladů, musí naspořit ${(50000 - uspory2)}.`
+    }
+    if (uspory2 >= 50000) {
+      return `Bohužel nemůžete jet. ${jmeno2} už má dost peněz, ale ${jmeno1} musí ještě naspořit minimálně ${(100000 - (uspory1 + uspory2))}. Pokud chce pokrýt polovinu nákladů, musí naspořit ${(50000 - uspory1)}.`
+    }
+    else {
+      return `Bohužel nemůžete jet, chybí vám ještě ${(100000 - (uspory1 + uspory2))}. ${jmeno1} musí ještě naspořit ${(50000 - uspory1)} a ${jmeno2} musí ještě naspořit ${(50000 - uspory2)}.`
+    }
   }
 }
 
 dovolena(osoba1, osoba2)
 
 const test1 = () => {
-  uspory1 = 45000;
-  uspory2 = 55000;
+  uspory1 = 47000;
+  uspory2 = 53000;
   return (dovolena(osoba1, osoba2));
 }
 
 const test2 = () => {
-  uspory1 = 55000;
-  uspory2 = 45000;
+  uspory1 = 53000;
+  uspory2 = 47000;
   return (dovolena(osoba1, osoba2));
 }
 
 const test3 = () => {
-  uspory1 = 55000;
-  uspory2 = 55000;
+  uspory1 = 53000;
+  uspory2 = 53000;
   return (dovolena(osoba1, osoba2));
 }
 
 const test4 = () => {
-  uspory1 = 45000;
-  uspory2 = 45000;
+  uspory1 = 47000;
+  uspory2 = 43000;
+  return (dovolena(osoba1, osoba2));
+}
+
+const test5 = () => {
+  uspory1 = 60000;
+  uspory2 = 30000;
+  return (dovolena(osoba1, osoba2));
+}
+
+const test6 = () => {
+  uspory1 = 30000;
+  uspory2 = 60000;
   return (dovolena(osoba1, osoba2));
 }
