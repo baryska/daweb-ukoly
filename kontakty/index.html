@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <title>Document</title>
+  </head>
+  <body>
+    <template id="contact_template"> 
+      <div class="contact">
+        <p>
+        <img src="contact.png" width="25" height="25">
+         Jméno: <span class="name">{{name}}</span>
+         Příjmení: <span class="surname">{{surname}}</span>
+         E-mail: <span class="email">{{email}}</span>
+         Telefon: <span class="phone">{{phone}}</span>
+        </p>
+      </div>
+    </template>
+    </template>
+    <div>
+      <h2 class="contact_head">
+        Kontakty:
+      </h2>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
